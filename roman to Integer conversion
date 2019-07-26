@@ -1,0 +1,37 @@
+#include<string.h>
+#include <stdio.h>
+
+int roman(char s)
+{int num=0;
+    switch(s){
+        case 'I':num= 1;break;
+        case 'V':num= 5;break;
+        case 'X':num= 10;break;
+        case 'L':num= 50;break;
+        case 'C':num= 100;break;
+        case 'M':num= 1000;break;
+        case '\0':num=0;break;
+         default: num = -1; 
+    }
+    
+    
+    return num;}
+int main()
+{ char s[100];
+ int number=0;
+  printf("enter a roman");
+  scanf("%s",&s);
+  int i=0;
+    while(roman(s[i]))
+    {
+        if(roman(s[i+1])<=s[i])
+        number = number + roman(s[i]) ;
+    
+        else{
+            number= number + ( roman(s[i]) - roman(s[i+1]) );
+            i++;}
+    i++;
+    }
+  printf("number is %d",number);
+    return 0;
+}
