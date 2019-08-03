@@ -1,0 +1,29 @@
+#include <stdio.h>
+int fact (int a)
+{
+  if (a > 0)
+    return a * fact (a - 1);
+  else
+    return 1;
+}
+
+int main ()
+{
+  printf ("enter a number");
+  int a, rem, sum;
+  sum = 0;
+  scanf ("%d", &a);
+  int p = a;
+  while (a >= 1)
+    {
+      rem = a % 10;
+      sum = sum + fact (rem);
+      a = a / 10;
+    }
+  if (p == sum)
+    printf ("strong");
+  else
+    printf ("not strong");
+
+  return 0;
+}
